@@ -3,36 +3,86 @@
 <!-- BEGIN HEAD ------------------------------------------------------------------------------------->
   <head>
     <title> Dustin Chung </title>
-    <style type="text/css">
-      p {
-        font-family:  monospace;
-        font-size:    16px;
-        color:        black;
-      }
-
-      .project-capsule  {
-        border-color: black;
-        border-radius: 10px;
-        border-style: solid;
-      }
-    </style>
+        <style type="text/css">
+            html {
+                font-family:  monospace;
+                font-size: 16px;
+            }
+            
+            p {
+                font-size: 16px;
+                color: black;
+            }
+            
+            #portfolio-container    {
+                width: 500px;
+                text-align: left;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .portfolio-container-header {
+                padding: 15px;
+                border-radius: 10px;
+            }
+            
+            #utility-header {
+                background-color: #9dd88c;
+            }
+            
+            #data-header    {
+                background-color: #b9b9ee;
+            }
+            
+            #fun-header {
+                 background-color: #eeadad;               
+            }
+            
+            .project-capsule  {
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            .utility-project-capsule:hover  {
+                background-color: #e1f7d5;
+            }
+            
+            .data-project-capsule:hover  {
+                background-color: #e5e5ff;
+            }
+            
+            .fun-project-capsule:hover  {
+                background-color: #ffdede;
+            }
+            
+        </style>
   </head>
 <!-- BEGIN BODY ------------------------------------------------------------------------------------->
-  <body>
-    <table style="width: 60%">
-      <tr>
-        <th class="project-capsule"> Left 1 </th>
-        <th class="project-capsule"> Right 1 </th>
-      </tr>
-      <tr>
-        <th class="project-capsule"> Left 2 </th>
-        <th class="project-capsule"> Right 2 </th>
-      </tr>
-      <tr>
-        <th class="project-capsule"> Left 3 </th>
-        <th class="project-capsule"> Right 3 </th>
-      </tr>
-    </table>
-  </body>
+    <body>
+        <table id="portfolio-container" style="width: 60%">
+            <tr>
+<!-- UTILITY SECTION -------------------------------------------------------------------------------->                
+                <th id="utility-header" class="portfolio-container-header">Utility</th>
+            </tr>
+            <tr>
+                <th id="projectu0" class="project-capsule utility-project-capsule"> Project Name: Project Description </th>
+            </tr>
+<!-- DATA SECTION ----------------------------------------------------------------------------------->
+            <tr>
+                <th id="data-header" class="portfolio-container-header">Data</th>
+            </tr>
+            <tr>
+                <th id="projectd0" class="project-capsule data-project-capsule"> Project Name: Project Description </th>
+            </tr>
+<!-- FUN SECTION ------------------------------------------------------------------------------------>
+            <tr>
+                <th id="fun-header" class="portfolio-container-header">Just for fun</th>
+            </tr>
+            <tr>
+                <th id="projectf0" class="project-capsule fun-project-capsule"> Project Name: Project Description </th>
+            </tr>               
+
+        </table>
+    </body>
 
 </html>
