@@ -7,6 +7,8 @@
             html {
                 font-family:  monospace;
                 font-size: 16px;
+                font-weight: 10px;
+                background-color: #EEEEEE;
             }
             
             p {
@@ -14,15 +16,39 @@
                 color: black;
             }
             
+            .my-photo   {
+                display: block;
+                width:  15em;
+                border-width: 0.1em;
+                border-style: solid;
+                border-radius: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .my-photo-container {
+                padding: 2em;
+            }
+            
+            .my-bio-container   {
+                width: 70%;
+                padding-bottom: 3em;
+                text-align: justify;
+                line-height: 2em;
+                margin-left: auto;
+                margin-right: auto;
+                
+            }
+            
             #portfolio-container    {
-                width: 500px;
+                width: 80%;
                 text-align: left;
                 margin-left: auto;
                 margin-right: auto;
             }
             
             .portfolio-container-header {
-                padding: 15px;
+                padding: 1em;
                 border-radius: 10px;
             }
             
@@ -39,7 +65,7 @@
             }
             
             .project-capsule  {
-                padding: 10px;
+                padding: 0.75em;
                 border-radius: 10px;
             }
             
@@ -59,9 +85,13 @@
   </head>
 <!-- BEGIN BODY ------------------------------------------------------------------------------------->
     <body>
+        
+        <div class="my-photo-container"><img class="my-photo" src="/img/0.jpg"></div>
+        <div class="my-name-container" style="text-align: center; font-size: 35px; padding-bottom: 0.5em;"><strong>Dustin Chung</strong></div>
+        <div class="my-bio-container">Welcome to my portfolio page! Here is where I show off the projects that I work on. Most projects will have a respective Github page and PDF write-up. To view my CV/Resume, click on my name or picture above.  </div>
         <table id="portfolio-container" style="width: 60%">
+<!-- UTILITY SECTION -------------------------------------------------------------------------------->
             <tr>
-<!-- UTILITY SECTION -------------------------------------------------------------------------------->                
                 <th id="utility-header" class="portfolio-container-header">Utility</th>
             </tr>
             <tr>
