@@ -33,12 +33,20 @@
             .my-bio-container   {
                 width: 70%;
                 padding-bottom: 3em;
-                text-align: justify;
+                text-align: center;
                 line-height: 2em;
                 margin-left: auto;
                 margin-right: auto;
                 
             }
+            
+            #github-contact {
+                width: 2em;
+            }
+            
+            #email-contact {
+                width: 2em;
+            }            
             
             #portfolio-container    {
                 width: 80%;
@@ -88,7 +96,13 @@
         
         <div class="my-photo-container"><img class="my-photo" src="img/0.jpg"></div>
         <div class="my-name-container" style="text-align: center; font-size: 35px; padding-bottom: 0.5em;"><strong>Dustin Chung</strong></div>
-        <div class="my-bio-container">Welcome to my portfolio page! Here is where I show off the projects that I work on. Most projects will have a respective Github page and PDF write-up. To view my CV/Resume, click on my name or picture above.  </div>
+        
+        <div class="my-bio-container">
+            <a href="https://github.com/dustincrs"><img src="img/github-logo.png" alt="Github" id="github-contact"></a>
+            &nbsp
+            <a href="mailto:dustincrs@outlook.com"><img src="img/email.png" alt="dustin.crs@outlook.com" id="email-contact"></a>
+        </div>
+        
         <table id="portfolio-container" style="width: 60%">
 <!-- UTILITY SECTION -------------------------------------------------------------------------------->
             <tr>
