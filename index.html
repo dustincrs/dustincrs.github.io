@@ -2,8 +2,14 @@
 <html>
 <!-- BEGIN HEAD ------------------------------------------------------------------------------------->
   <head>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <title> Dustin Chung </title>
         <style type="text/css">
+            :root   {
+                --utility-color: #9dd88c;
+                --data-color: #b9b9ee;
+                --fun-color: #eeadad;
+            }
             html {
                 font-family:  monospace;
                 font-size: 16px;
@@ -70,15 +76,15 @@
             }
             
             #utility-header {
-                background-color: #9dd88c;
+                background-color: var(--utility-color);
             }
             
             #data-header    {
-                background-color: #b9b9ee;
+                background-color: var(--data-color);
             }
             
             #fun-header {
-                 background-color: #eeadad;               
+                 background-color: var(--fun-color);               
             }
             
             .project-capsule  {
@@ -141,7 +147,7 @@
                 </th>
             </tr>
             <tr>
-                <th id="projectd0" class="project-capsule data-project-capsule"> Coming Soon! </th>
+                <th id="projectd0" class="project-capsule data-project-capsule"><a href="https://dustincrs.github.io/pinyin_plotter/">Pinyin Plotter: Visualizing the tones of Mandarin Chinese</a></th>
             </tr>
 <!-- FUN SECTION ------------------------------------------------------------------------------------>
             <tr>
