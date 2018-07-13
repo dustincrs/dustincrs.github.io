@@ -16,6 +16,14 @@
                 color: black;
             }
             
+            .left-aligned   {
+                float: left;
+            }
+            
+            .right-aligned   {
+                float: right;
+            }
+            
             .my-photo   {
                 display: block;
                 width:  15em;
@@ -41,17 +49,9 @@
                 
             }
             
-            #github-contact {
+            .contact-icon {
                 width: 2em;
-            }
-            
-            #email-contact {
-                width: 2em;
-            }     
-
-            #resume-contact {
-                width: 2em;
-            }             
+            }           
             
             #portfolio-container    {
                 width: 80%;
@@ -63,6 +63,10 @@
             .portfolio-container-header {
                 padding: 1em;
                 border-radius: 10px;
+            }
+            
+            .portfolio-icon {
+                width: 1em;
             }
             
             #utility-header {
@@ -103,34 +107,50 @@
         <div class="my-name-container" style="text-align: center; font-size: 35px; padding-bottom: 0.5em;"><strong>Dustin Chung</strong></div>
         
         <div class="my-bio-container">
-            <a href="https://github.com/dustincrs"><img src="img/github-logo.png" alt="Github" id="github-contact"></a>
+            <a href="https://github.com/dustincrs"><img src="img/github-logo.png" alt="Github" class="contact-icon"></a>
             &nbsp;
             
-            <a href="mailto:dustincrs@outlook.com"><img src="img/email.png" alt="dustin.crs@outlook.com" id="email-contact"></a>
+            <a href="mailto:dustincrs@outlook.com"><img src="img/email.png" alt="dustin.crs@outlook.com" class="contact-icon"></a>
             &nbsp;
             
-            <a href="docs/resume.pdf"><img src="img/resume-icon.png" alt="Resume" id="resume-contact"></a>
+            <a href="docs/resume.pdf"><img src="img/resume-icon.png" alt="Resume" class="contact-icon"></a>
             
         </div>
         
         <table id="portfolio-container" style="width: 60%">
 <!-- UTILITY SECTION -------------------------------------------------------------------------------->
             <tr>
-                <th id="utility-header" class="portfolio-container-header">Utility</th>
+                <th id="utility-header" class="portfolio-container-header">
+                    <span class="left-aligned">Utility</span>
+                    
+                    <span class="right-aligned"><img src="img/utility-logo.png" class="portfolio-icon"></span>
+                    
+                </th>
             </tr>
             <tr>
                 <th id="projectu0" class="project-capsule utility-project-capsule"> <a href="https://dustincrs.github.io/pastebin_buddy/">Pastebin Buddy: Interacting with the Pastebin API</a></th>
             </tr>
 <!-- DATA SECTION ----------------------------------------------------------------------------------->
             <tr>
-                <th id="data-header" class="portfolio-container-header">Data</th>
+                <th id="data-header" class="portfolio-container-header">
+                    
+                    <span class="left-aligned">Data</span>
+                    
+                    <span class="right-aligned"><img src="img/data-logo.png" class="portfolio-icon"></span>
+                                   
+                </th>
             </tr>
             <tr>
                 <th id="projectd0" class="project-capsule data-project-capsule"> Coming Soon! </th>
             </tr>
 <!-- FUN SECTION ------------------------------------------------------------------------------------>
             <tr>
-                <th id="fun-header" class="portfolio-container-header">Just for fun</th>
+                <th id="fun-header" class="portfolio-container-header">
+                    
+                    <span class="left-aligned">Just for Fun</span>
+                    
+                    <span class="right-aligned"><img src="img/fun-logo.png" class="portfolio-icon"></span>                
+                </th>
             </tr>
             <tr>
                 <th id="projectf0" class="project-capsule fun-project-capsule"> Coming Soon! </th>
