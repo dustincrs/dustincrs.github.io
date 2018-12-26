@@ -1,0 +1,51 @@
+:root   {
+    --utility-color: #9dd88c;
+    --data-color: #b9b9ee;
+    --fun-color: #eeadad;
+}
+
+html + body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #EEEEEE;
+}
+
+a   {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover     {
+    color: black;
+    text-decoration: none;
+}
+
+.control-icon   {
+    font-size: 26pt;
+}
+
+.main-photo   {
+    display: block;
+    width:  15em;
+    border-color: gainsboro;
+    border-width: 1em; 
+    border-style: solid;
+    border-radius: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-photo-container {
+    padding: 2em;
+}
+
+#utility {
+    border-color: var(--utility-color);
+}
+
+#data {
+    border-color: var(--data-color);
+}
+
+#fun {
+    border-color: var(--fun-color, --utility-color);
+}

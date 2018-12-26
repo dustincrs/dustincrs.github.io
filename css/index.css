@@ -1,0 +1,39 @@
+:root   {
+    --utility-color: #9dd88c;
+    --data-color: #b9b9ee;
+    --fun-color: #eeadad;
+}
+
+html + body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #EEEEEE;
+}
+
+a   {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover     {
+    color: black;
+    text-decoration: none;
+}
+
+.contact-icon   {
+    font-size: 26pt;
+}
+
+.utility-header {
+    background-color: var(--utility-color);
+    padding: 0.5em;
+}
+
+.data-header    {
+    background-color: var(--data-color);
+    padding: 0.5em;
+}
+
+.fun-header {
+     background-color: var(--fun-color);
+     padding: 0.5em;
+}

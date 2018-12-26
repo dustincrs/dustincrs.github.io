@@ -1,176 +1,104 @@
 <!DOCTYPE html>
 <html>
-<!-- BEGIN HEAD ------------------------------------------------------------------------------------->
-  <head>
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
-    <title> Dustin Chung </title>
-        <style type="text/css">
-            :root   {
-                --utility-color: #9dd88c;
-                --data-color: #b9b9ee;
-                --fun-color: #eeadad;
-            }
-            html {
-                font-family:  monospace;
-                font-size: 16px;
-                font-weight: 10px;
-                background-color: #EEEEEE;
-            }
-            
-            p {
-                font-size: 16px;
-                color: black;
-            }
-            
-            .left-aligned   {
-                float: left;
-            }
-            
-            .right-aligned   {
-                float: right;
-            }
-            
-            .my-photo   {
-                display: block;
-                width:  15em;
-                border-color: #999999;
-                border-width: 1em;
-                border-style: solid;
-                border-radius: 60%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .my-photo-container {
-                padding: 2em;
-            }
-            
-            .my-bio-container   {
-                width: 70%;
-                padding-bottom: 3em;
-                text-align: center;
-                line-height: 2em;
-                margin-left: auto;
-                margin-right: auto;
-                
-            }
-            
-            .contact-icon {
-                width: 2em;
-            }           
-            
-            #portfolio-container    {
-                width: 80%;
-                text-align: left;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .portfolio-container-header {
-                padding: 1em;
-                border-radius: 10px;
-            }
-            
-            .portfolio-icon {
-                width: 1em;
-            }
-            
-            #utility-header {
-                background-color: var(--utility-color);
-            }
-            
-            #data-header    {
-                background-color: var(--data-color);
-            }
-            
-            #fun-header {
-                 background-color: var(--fun-color);               
-            }
-            
-            .project-capsule  {
-                padding: 0.75em;
-                border-radius: 10px;
-            }
-            
-            .utility-project-capsule:hover  {
-                background-color: #e1f7d5;
-            }
-            
-            .data-project-capsule:hover  {
-                background-color: #e5e5ff;
-            }
-            
-            .fun-project-capsule:hover  {
-                background-color: #ffdede;
-            }
-            
-            .project-language-logo  {
-                width: 1em;
-            }
-            
-        </style>
-  </head>
-<!-- BEGIN BODY -----------------------------------------
-<img class="project-language-logo" src="img/python.png">
--------------------------------------------->
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <title>Dustin Chung</title>
+      </head>
+
     <body>
         
-        <div class="my-photo-container"><img class="my-photo" src="img/0.jpg"></div>
-        <div class="my-name-container" style="text-align: center; font-size: 35px; padding-bottom: 0.5em;"><strong>Dustin Chung</strong></div>
-        
-        <div class="my-bio-container">
-            <a href="https://github.com/dustincrs"><img src="img/github-logo.png" alt="Github" class="contact-icon"></a>
-            &nbsp;
-            
-            <a href="mailto:dustincrs@outlook.com"><img src="img/email.png" alt="dustin.crs@outlook.com" class="contact-icon"></a>
-            &nbsp;
-            
-            <a href="docs/resume.pdf"><img src="img/resume-icon.png" alt="Resume" class="contact-icon"></a>
-            
-        </div>
-        
-        <table id="portfolio-container" style="width: 60%">
-<!-- UTILITY SECTION -------------------------------------------------------------------------------->
-            <tr>
-                <th id="utility-header" class="portfolio-container-header">
-                    <span class="left-aligned">Utility</span>
-                    
-                    <span class="right-aligned"><img src="img/utility-logo.png" class="portfolio-icon"></span>
-                    
-                </th>
-            </tr>
-            <tr>
-                <th id="projectu0" class="project-capsule utility-project-capsule"> <a href="https://dustincrs.github.io/pastebin_buddy/"><img class="project-language-logo" src="img/python.png
-                    "> Pastebin Buddy: Interacting with the Pastebin API</a></th>
-            </tr>
-<!-- DATA SECTION ----------------------------------------------------------------------------------->
-            <tr>
-                <th id="data-header" class="portfolio-container-header">
-                    
-                    <span class="left-aligned">Data</span>
-                    
-                    <span class="right-aligned"><img src="img/data-logo.png" class="portfolio-icon"></span>
-                                   
-                </th>
-            </tr>
-            <tr>
-                <th id="projectd0" class="project-capsule data-project-capsule"><a href="https://dustincrs.github.io/pinyin_plotter/"><img class="project-language-logo" src="img/python.png
-                    "> Pinyin Plotter: Visualizing the tones of Mandarin Chinese</a></th>
-            </tr>
-<!-- FUN SECTION ------------------------------------------------------------------------------------>
-            <tr>
-                <th id="fun-header" class="portfolio-container-header">
-                    
-                    <span class="left-aligned">Just for Fun</span>
-                    
-                    <span class="right-aligned"><img src="img/fun-logo.png" class="portfolio-icon"></span>                
-                </th>
-            </tr>
-            <tr>
-                <th id="projectf0" class="project-capsule fun-project-capsule"><a href="https://dustincrs.github.io/markov/"><img class="project-language-logo" src="img/golang.png"> Simple Markov Chain Text Generation in Golang</a></th>
-            </tr>               
+        <div class="container-fluid">
+            <div class="row text-center my-5">
+                <div class="col">
+                    <h1>Dustin Chung</h1>
+                </div>
+            </div>
 
-        </table>
+            <div class="row">
+                <div class="col-4 text-right">
+                    <a href="https://github.com/dustincrs" class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+                <div class="col-4 text-center">
+                    <a href="mailto:dustincrs@outlook.com" class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <div class="col-4 text-left">
+                    <a href="docs/resume.pdf" class="contact-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <p>This portfolio is currently under construction! For a list of projects, see the links below (click on them for more detailed writeups and/or the GitHub links).</p>
+                </div>
+            </div>
+
+            <!--portfolio-->
+            <div class="w-100 my-5"></div>
+
+            <div class="row px-5 mx-5">
+                <div class="col-6 text-left utility-header font-weight-bold">
+                    Utility
+                </div>
+                <div class="col-6 text-right utility-header">
+                    <i class="fas fa-wrench"></i>
+                </div>
+
+                <a href="./projects/pastebin_buddy/pastebin_buddy.html">
+                    <div class="col-12 my-3">
+                        <span class="mr-5"><i class="fab fa-python"></i></span>
+                        Pastebin Buddy: Interacting with the Pastebin API
+                    </div>
+                </a>
+            </div>
+
+            <div class="row px-5 mx-5">
+                <div class="col-6 text-left data-header font-weight-bold">
+                    Data
+                </div>
+                <div class="col-6 text-right data-header">
+                    <i class="far fa-chart-bar"></i>
+                </div>
+    
+                <a href="./projects/pinyin_plotter/pinyin_plotter.html">
+                    <div class="col-12 my-3">
+                        <span class="mr-5"><i class="fab fa-python"></i></span>
+                        Pinyin Plotter: Visualizing the tones of Mandarin Chinese
+                    </div>
+                </a>
+            </div>
+
+            <div class="row px-5 mx-5">
+                <div class="col-6 text-left fun-header font-weight-bold">
+                    Just For Fun
+                </div>
+                <div class="col-6 text-right fun-header">
+                    <i class="fas fa-glass-cheers"></i>
+                </div>
+
+                <a href="./projects/markov/markov.html">
+                    <div class="col-12 my-3">
+                        <span class="mr-5"><i class="fab fa-google"></i></span>
+                        Simple Markov Chain Text Generation in Golang
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
     </body>
 
 </html>
