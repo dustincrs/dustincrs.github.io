@@ -1,0 +1,117 @@
+\documentclass[11pt, a4paper]{article}
+\renewcommand{\abstractname}{Overview}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\begin{document}
+	\lstset{language=Python, breaklines=true, backgroundcolor=\color{lightgray},framexleftmargin=1em}
+	\title{Simple Music Note Transposition With Transposy}
+	\author{Dustin Chung}
+	\date{Project: Feb 2019 | Writeup: Feb 2019}
+	\maketitle
+	\begin{abstract}
+		Transposy is a simple utility written in Python that musically transposes inputs of notes. It has the ability to transpose by number of steps, to transpose relative to a given starting note, and to return all transposition combinations that avoid undesired notes. It does not, however, take into account octaves, note timings, and key signatures.
+	\end{abstract}
+
+	\section{Introduction}
+		Transposition is a very important skill in music: by changing the absolute pitches of the notes in a melody without changing their intervals, the tune becomes accessible to different instruments where certain notes may not be accessible. For example, a certain song may be written at too high a pitch for a singer to sing well. Using transposition, the pitch of the song can be lowered. 
+
+		The method of transposition discussed in this document works by stepping up or down semitones repeatedly. If all notes in a given input are stepped in the same direction with the same interval, then it can be considered transposed.
+
+	\section{Methods \& Implementation}
+		A Python class was written, called Transposer. It initializes with the input of notes, which must be entered in the format of an array of arrays, with each inner array containing one or more musical notes in their letter notation. Single-membered inner arrays correspond to single notes, whilst arrays with more than one note correspond to chords.
+
+		\subsection{Initialization}
+
+				\subsubsection{Rules for input of notes}
+					The letter notation is given as a string and follows simple rules: 
+					\begin{itemize}
+						\item All notes to be expressed in capital letters. 
+						\item All non-natural notes are expressed as sharps (e.g. Bb = A\#) 
+						\item All notes are expressed by themselves (e.g. NOT ["AB"], but ["A", "B"]) 
+					\end{itemize}
+
+				\subsubsection{Initializer inputs}
+					As outlined above, an array of arrays must be provided to the Transposer constructor. The inner arrays can be on any size, so long as there are no deeper array levels within them. The table below shows examples of valid and invalid inputs. 
+
+				\begin{table}[h!]
+						\begin{tabular}{lll}
+								\hline
+								Example Input                			& Valid? & Reason for Rejection                                  \\ \hline
+								[[``A''], [``B''], [``C''], [``D'']] 	& Yes    &                                                       \\ \hline
+								[[``A''], [``B'',``C''], [``D'']]  		& Yes    &                                                       \\ \hline
+								[[``A'', ``B'', ``C'', ``D'']]      	& Yes    &                                                       \\ \hline
+								[``A'', [``B''], [``C''], [``D'']]  	& No     & All inner elements must be in an array ("A" to ["A"]) \\ \hline
+								[[``A''], [], [False], [2]]     		& No     & All notes must be expressed as strings.               \\ \hline
+								``A''                          			& No     & Input must be array of arrays ([["A"]])               \\ \hline
+						\end{tabular}
+						\caption{Examples of valid and invalid inputs for the initializer.}
+				\end{table}
+
+	\section{Use, Design, and Methods}
+		The Transposer class contains a hash (Python dict) that holds all possible notes in the chromatic scale as keys. The values of these keys is an array containing two elements: the note one semitone higher, and lower than the corresponding key note:
+
+	\begin{lstlisting}[language=Python]
+keymap = {"C":["B", "C#"], "C#":["C", "D"], "D":["C#", "D#"], "D#":["D", "E"], "E":["D#", "F"], "F":["E", "F#"], "F#":["F", "G"], "G":["F#", "G#"], "G#":["G", "A"], "A":["G#", "A#"], "A#":["A", "B"], "B":["A#", "C"]}
+	\end{lstlisting}
+
+	This approach of mapping out keys relative to each allows us to traverse all the notes in the chromatic scale with some efficiency, through repeated access of the keymap hash.
+	\subsubsection{The \_\_step function}
+		The private \textbf{\_\_step} method is the main workhorse of the Transposer class. It takes a note as an argument, as well as a boolean which denotes the direction in which to operate. It then returns the next semitone down/up:
+
+		\begin{lstlisting}
+def __step(self, note, bool_step_up):
+neighbours = self.keymap[f"{note}"]
+
+if bool_step_up:
+return neighbours[1]
+else:
+return neighbours[0]
+		\end{lstlisting}
+
+		This takes advantage of the standardization given to the keymap hash, whereby the first element of any associated array is a step down, and the second element is a step up. This method is the foundation on which other methods are built. For the following sections that describe the transposy methods, assume a preliminary setup as described in the code block below:
+		\begin{lstlisting}
+import transposy
+notes = [["A", "B"], ["C#"], ["D"]]
+t = transposy.Transposer(notes)
+		\end{lstlisting}
+
+		This will allow for easier following of the examples.
+
+
+	\subsubsection{The transpose\_by function}
+		The first utility of transposy is the \textbf{transpose\_by} method. This method takes an integer and boolean as arguments, which dictate the number of semitones to step and the direction to step in respectively. To achieve this, it calls the \textbf{\_\_step} method repeatedly for each note that was initialized, storing the result each time and using that for the next loop iteration.
+
+		\begin{lstlisting}
+t.transpose_by(1) # [["A#", "C"], ["D"], ["D#"]]
+t.transpose_by(4, False) # [["F", "G"], ["A"], ["A#"]]
+		\end{lstlisting}
+
+	\subsubsection{The start\_on\_note function}
+		This method takes a note as an argument, and transposes the first note in the initial input to that note. It then calculates the number of steps that were taken to achieve that transposition, and then calls the \textbf{\_\_step} method that many times on all the other notes. Since transposy does not take into account octaves, this method always transposes upwards.
+
+		\begin{lstlisting}
+t.start_on_note("D") # [["D", "E"], ["F#"], ["G"]]
+		\end{lstlisting}
+
+	\subsubsection{The avoid function}
+		When called with an array of notes as an argument, this method returns an array of arrays, each containing the results of a transposition that does not contain any of the notes in the argument. This allows the user to see all possible transpositions that avoid notes of their choosing.
+
+		\begin{lstlisting}
+t.avoid(["C", "B"])
+# Returns:
+# [	
+#	[["C#", "D#"], ["F"], ["F#"]],
+#	[["D", "E"], ["F#"], ["G"]],
+#	[["D#", "F"], ["G"], ["G#"]],
+#	[["E", "F#"], ["G#"], ["A"]],
+#	[["F", "G"], ["A"], ["A#"]]
+# ]
+	\end{lstlisting}
+
+	\section{Conclusion}
+		A simple Python class was devised that allowed musical notes to be transposed through different methods, such as direct transposition, setting the starting note and transposing from there, and getting all possible transpositions that avoid a set of undesired input notes.
+		Limitations of the program include it not accounting for octaves, musical timing, and key signatures. It is the opinion of the author that this simple program will find use with amateur musicians who do not have the skill of transposition fully learned.
+
+\end{document}

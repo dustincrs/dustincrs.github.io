@@ -39,6 +39,16 @@ a:hover     {
     padding: 2em;
 }
 
+.styled-link	{
+	text-decoration: underline;
+	color: blue;
+}
+
+.styled-link:hover	{
+	text-decoration: underline;
+	color: blue;
+}
+
 #utility {
     border-color: var(--utility-color);
 }
